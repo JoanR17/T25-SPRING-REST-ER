@@ -2,6 +2,8 @@ package UD25_Ej3.dto;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "cajas")
 public class Cajas {
@@ -52,6 +54,15 @@ public class Cajas {
 		this.valor = valor;
 	}
 
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Almacenes")
+	public Almacenes getAlmacen() {
+		return almacen;
+	}
+
+	public void setAlmacen(Almacenes almacen) {
+		this.almacen = almacen;
+	}
 
 	@Override
 	public String toString() {

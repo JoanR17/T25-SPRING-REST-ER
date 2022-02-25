@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import UD25_Ej3.dao.ICajasDAO;
+import UD25_Ej3.dto.Almacenes;
 import UD25_Ej3.dto.Cajas;
 
 @Service
@@ -28,7 +29,7 @@ public class CajasServiceIMPL implements ICajasService{
 	}
 
 	@Override
-	public List<Cajas> listarCajasAlmacenes(String almacen) {
+	public List<Cajas> listarCajasAlmacenes(Almacenes almacen) {
 		return iCajasDAO.findByAlmacen(almacen);
 	}
 

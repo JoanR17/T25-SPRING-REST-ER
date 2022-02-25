@@ -3,6 +3,8 @@ package UD25_Ej3.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import UD25_Ej3.dto.Almacenes;
 import UD25_Ej3.dto.Cajas;
 import UD25_Ej3.service.CajasServiceIMPL;
 
@@ -20,7 +22,12 @@ public class CajasController {
 
 	// listar Cajass por campo nombre
 	@GetMapping("/Cajas/almacen/{almacen}")
-	public List<Cajas> listarCajasNombre(@PathVariable(name = "almacen") String almacen) {
+	public List<Cajas> listarCajasNombre(@PathVariable(name = "almacen") Long id) {
+		
+		Almacenes almacen = new Almacenes();
+		
+		almacen.setid(id);
+		
 		return cajasServiceImpl.listarCajasAlmacenes(almacen);
 	}
 
